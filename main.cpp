@@ -215,14 +215,18 @@ void search()
 
             if(cur->tahunTerbit == item)  
             {  
+		 cout << "\n\n";
+		 printf(" Data ada ke - %d ", countSingleLinkedList() + 1);
+                 cout << "________________________________________________________________" << endl;
+                 cout << "| Judul\t\t|\tPengarang\t|\tTahun Terbit\t|" << endl;
+                 cout << "|_______________________________________________________________|" << endl;
                  cout << endl;
-                 printf(" Data ada ke - %d ", i + 1);
-                 cout << endl << endl;
-                 cout << " Judul Buku     : " << cur->judul << endl;
-                 cout << " Pengarang Buku : " << cur->pengarang << endl;
-                 cout << " Tahun Terbit   : " << cur->tahunTerbit << endl;
+                 
+                 cout << "| " << cur->judul << "\t| " << cur->pengarang << "\t\t| " << cur->tahunTerbit<<"\t\t\t|"<< endl;
+                 cout << "_________________________________________________________________" << endl;
                  flag = 0;
                  cout << endl;
+		    
             }   
             else  
             {  
