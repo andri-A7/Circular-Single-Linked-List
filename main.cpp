@@ -215,9 +215,14 @@ void search()
 
             if(cur->tahunTerbit == item)  
             {  
-                printf("Data ada ke - %d ",i+1);  
-                flag=0;  
-                return;  
+                 cout << endl;
+                 printf(" Data ada ke - %d ", i + 1);
+                 cout << endl << endl;
+                 cout << " Judul Buku     : " << cur->judul << endl;
+                 cout << " Pengarang Buku : " << cur->pengarang << endl;
+                 cout << " Tahun Terbit   : " << cur->tahunTerbit << endl;
+                 flag = 0;
+                 cout << endl;
             }   
             else  
             {  
