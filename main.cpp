@@ -8,7 +8,7 @@
 #include <iostream>
 
 using namespace std;
-int jumlah = 0;
+
 void reverse(int tahunTerbit);
 struct Buku
 {
@@ -28,7 +28,8 @@ void createSingleLinkedList(string Judul, string pengarang,int tB)
         tail->next = head;
     
 }
-void addFirst(string judul, string pengarang, int tB) {
+void addFirst(string judul, string pengarang, int tB) 
+{
     if (head == NULL) {
         cout << "Buat Linked List dulu!!" << endl;
     }
@@ -43,7 +44,6 @@ void addFirst(string judul, string pengarang, int tB) {
         head = newNode;
     }
 }
-
 int countSingleLinkedList()
 {
     
@@ -53,7 +53,8 @@ int countSingleLinkedList()
     }
     else
     {
-        
+        int jumlah = 0;
+
         cur = head;
         while (cur->next != head)
         {
@@ -64,7 +65,8 @@ int countSingleLinkedList()
     }
     
 }
-void addLast(string judul, string pengarang, int tB) {
+void addLast(string judul, string pengarang, int tB)
+ {
     if (head == NULL) {
         cout << "Buat Linked List dulu!!" << endl;
     }
@@ -78,7 +80,6 @@ void addLast(string judul, string pengarang, int tB) {
         tail = newNode;
     }
 }
-
 // add Middle
 void addMiddle(string judul,string pengarang,int tB, int posisi)
 {
@@ -108,7 +109,6 @@ void addMiddle(string judul,string pengarang,int tB, int posisi)
         }
     }
 }
-
 // remove First
 void removeFirst() {
     if (head == NULL) {
@@ -121,7 +121,6 @@ void removeFirst() {
         delete del;
     }
 }
-
 // remove last
 void removeLast()
 {
@@ -139,7 +138,6 @@ void removeLast()
         delete del;
     }
 }
-
 // remove middle
 void removeMiddle(int posisi)
 {
@@ -210,13 +208,13 @@ void search()
         if(cur ->tahunTerbit == item)  
         {  
         cout << "\n\n";
-		printf(" Data ada ke - %d ", jumlah+1);cout<<endl;
+		printf(" Data ada ke - %d ", i+1);cout<<endl;
         cout << "________________________________________________________________" << endl;
         cout << "| Judul\t\t|\tPengarang\t|\tTahun Terbit\t|" << endl;
         cout << "|_______________________________________________________________|" << endl;
         cout << endl;              
         cout << "| " << cur->judul << "\t| " << cur->pengarang << "\t\t| " << cur->tahunTerbit<<"\t\t\t|"<< endl;
-        cout << "_________________________________________________________________" << endl;
+        cout << "|_______________________________________________________________|" << endl;
         flag = 0;
         cout << endl;  
         return; 
@@ -229,14 +227,14 @@ void search()
             if(cur->tahunTerbit == item)  
             {  
                 cout << "\n\n";
-		        printf(" Data ada ke - %d ", jumlah+1);cout<<endl;
+		        printf(" Data ada ke - %d ", i+1);cout<<endl;
                  cout << "________________________________________________________________" << endl;
                  cout << "| Judul\t\t|\tPengarang\t|\tTahun Terbit\t|" << endl;
                  cout << "|_______________________________________________________________|" << endl;
                  cout << endl;
                  
                  cout << "| " << cur->judul << "\t| " << cur->pengarang << "\t\t| " << cur->tahunTerbit<<"\t\t\t|"<< endl;
-                 cout << "_________________________________________________________________" << endl;
+                 cout << "|_______________________________________________________________|" << endl;
                  flag = 0;
                  cout << endl;  
                  return;
@@ -276,7 +274,7 @@ void printCircular()
         cout << "Buat Linked List dulu!!" << endl;
     }
     else {
-        cout << "\n\n";
+        cout << "\n";
         cout << "Data Mahasiswa " << countSingleLinkedList()<<endl;
         cout << "________________________________________________________________" << endl;
         cout << "| Judul\t\t|\tPengarang\t|\tTahun Terbit\t|" << endl;
@@ -287,28 +285,33 @@ void printCircular()
         {
             // print
            
-            cout << "| " << cur->judul<< "\t| " << cur->pengarang<< "\t\t| " << cur->tahunTerbit << "\t\t\t|" << endl;
-            cur = cur->next;
+             cout << "| " << cur->judul << "\t| " << cur->pengarang << "\t\t| " << cur->tahunTerbit<<"\t\t\t|"<< endl;
+             cout << "|_______________________________________________________________|" << endl;
+             cur = cur->next;
         }
-
-        cout << "| " << cur->judul << "\t| " << cur->pengarang << "\t\t| " << cur->tahunTerbit<<"\t\t\t|"<< endl;
-        cout << "_________________________________________________________________" << endl;
+         cout << "| " << cur->judul << "\t| " << cur->pengarang << "\t\t| " << cur->tahunTerbit<<"\t\t\t|"<< endl;
+         cout << "|_______________________________________________________________|" << endl;
+       
     }
 }
 
 int main()
 
 {
-     
     int pilihan;
-    createSingleLinkedList("Pasti Mumet", "Munaroh", 2018); printCircular();cout << "\n\n" << endl;
-    addFirst("Informatika", "Juned Janedi", 2010);printCircular();cout << "\n\n" << endl;
-    addLast("Ayok Masuk", "Maimunah", 2001);cout << "\n\n" << endl;
+    do{
+
+    
+    
+    createSingleLinkedList("Pasti Mumet", "Munaroh", 2018); printCircular();
+    addFirst("Informatika", "Juned Janedi", 2010);printCircular();
+    addLast("Ayok Masuk", "Maimunah", 2001);
     printCircular();
     cout << "CIRCULAR LINKED LIST\n\n";
-    cout <<"1. seraching data sinih tod\n";
-    cout <<"2. Urutkn data berdasarkan Tahunterbit\n";
-
+    cout <<"1. seraching data \n";
+    cout <<"2. Urutkan data berdasarkan Tahunterbit\n";
+    cout << "3. Exit\n\n";
+    cout << "pilih : ";
     cin >>pilihan;
     switch(pilihan)
     {
@@ -321,9 +324,16 @@ int main()
         case 2:
         {
             removeLast();
-            addFirst("Ayok Masuk", "Maimunah", 2001);cout << "\n\n" << endl;
+            addFirst("Ayok Masuk", "Maimunah", 2001);cout << "\n";
             printCircular();
             break;
         }
+        default :
+        {
+            break;
+        }
     }
+  }
+  while(pilihan <=2);
+
 }
